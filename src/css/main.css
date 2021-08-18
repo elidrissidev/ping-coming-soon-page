@@ -1,0 +1,265 @@
+@import '_normalize.css';
+
+:root {
+  /** Colors */
+  --blue: hsl(223, 87%, 63%);
+  --blue-light: hsl(223, 87%, 73%);
+  --blue-pale: hsl(223, 100%, 88%);
+  --blue-dark: hsl(209, 33%, 12%);
+  --red-light: hsl(354, 100%, 66%);
+  --gray: hsl(0, 0%, 59%);
+
+  /** Typography */
+  --body-font-size: 1.25rem; /* 20px */
+  --body-font-family: 'Libre Franklin', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+}
+
+header {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.logo {
+  height: 1rem;
+}
+
+.root-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.cta {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+}
+
+.cta__heading {
+  color: var(--gray);
+  font-size: 1.35rem;
+  font-weight: 300;
+}
+
+.cta__heading strong {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+
+.cta__paragraph {
+  color: var(--blue-dark);
+  font-size: 0.8rem;
+}
+
+.cta__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.form__input {
+  border-radius: 9999px;
+  border: 1px solid var(--blue-pale);
+  color: var(--blue-dark);
+  font-size: 0.8rem;
+  padding: 1em 2.5em;
+  outline: none;
+  width: 100%;
+}
+
+.form__input::placeholder {
+  color: var(--gray);
+}
+
+.form__input-error {
+  display: none;
+}
+
+.form__input:invalid:not(:placeholder-shown) {
+  border-color: var(--red-light);
+}
+
+.form__input:invalid:not(:placeholder-shown) ~ .form__input-error {
+  color: var(--red-light);
+  display: block;
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.form__btn {
+  background-color: var(--blue);
+  border-radius: 9999px;
+  border: none;
+  box-shadow: 0px 6px 12px var(--blue-pale);
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.75em;
+  padding: 1em;
+  text-transform: capitalize;
+  transition: background-color 200ms ease-in;
+}
+
+.form__btn:hover,
+.form__btn:focus {
+  background-color: var(--blue-light);
+}
+
+.illustration {
+  background-image: url('../images/illustration-dashboard.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  flex: 1;
+  margin-left: 1.25em;
+  margin-right: 1.25em;
+  min-height: 18rem;
+}
+
+.social-links {
+  text-align: center;
+}
+
+.social-links__link {
+  border: 1px solid var(--blue-pale);
+  border-radius: 50%;
+  color: var(--blue);
+  display: inline-block;
+  font-size: 1rem;
+  height: 1.75rem;
+  text-decoration: none;
+  transition: background-color 200ms ease-in, color 200ms ease-in;
+  width: 1.75rem;
+}
+
+.social-links__link:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+.social-links__link:hover,
+.social-links__link:focus {
+  background-color: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.social-links__link .fa {
+  margin-top: 0.3em;
+}
+
+footer {
+  margin-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.copyright {
+  color: var(--gray);
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 2.5em;
+  text-align: center;
+}
+
+.attribution {
+  color: var(--gray);
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 0.5em;
+  margin-bottom: 2.5em;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--blue);
+}
+
+@media screen and (min-width: 640px) {
+  .logo {
+    height: 1.25rem;
+  }
+
+  .container {
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta {
+    padding: 0;
+  }
+
+  .cta__heading {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+  }
+
+  .cta__paragraph {
+    font-size: 1rem;
+  }
+
+  .cta__form {
+    flex-direction: row;
+  }
+
+  .cta__form > div {
+    flex: 1;
+    margin-right: 1em;
+    position: relative;
+  }
+
+  .form__input-error {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .form__btn {
+    margin-top: 0;
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+
+  .illustration {
+    margin: 0;
+  }
+}
